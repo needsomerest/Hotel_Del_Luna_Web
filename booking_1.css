@@ -1,0 +1,311 @@
+body{
+  background-color:whitesmoke;
+  font-family:'Barlow',sans-serif;
+  transition: transform .2s;
+}
+/*----  5 Cards  ----*/
+#cards_landscape_wrap-2{
+    margin-top:20px;
+    text-align: center;
+    background: #F7F7F7;
+}
+#cards_landscape_wrap-2 .container{
+    padding-top: none; 
+    padding-bottom: 60px;
+}
+#cards_landscape_wrap-2 a{
+    text-decoration: none;
+    outline: none;
+}
+#cards_landscape_wrap-2 .card-flyer {
+    border-radius: 5px;
+}
+#cards_landscape_wrap-2 .card-flyer .image-box{
+    background: #ffffff;
+    overflow: hidden;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.50);
+    border-radius: 5px;
+    width: 100%;
+}
+#cards_landscape_wrap-2 .card-flyer .image-box img{
+    -webkit-transition: all .9s ease; 
+    -moz-transition: all .9s ease; 
+    -o-transition: all .9s ease;
+    -ms-transition: all .9s ease; 
+}
+#cards_landscape_wrap-2 .card-flyer:hover .image-box img{
+    opacity: 0.7;
+    -webkit-transform:scale(1.15);
+    -moz-transform:scale(1.15);
+    -ms-transform:scale(1.15);
+    -o-transform:scale(1.15);
+    transform:scale(1.15);
+}
+#cards_landscape_wrap-2 .card-flyer .text-box{
+    text-align: center;
+}
+#cards_landscape_wrap-2 .card-flyer .text-box .text-container{
+    padding: 30px 18px;
+}
+#cards_landscape_wrap-2 .card-flyer{
+    background: #FFFFFF;
+    margin-top: 50px;
+    -webkit-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    -ms-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.40);
+}
+#cards_landscape_wrap-2 .card-flyer:hover{
+    background: #fff;
+    box-shadow: 0px 15px 26px rgba(0, 0, 0, 0.50);
+    -webkit-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    -ms-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+    margin-top: 50px;
+}
+#cards_landscape_wrap-2 .card-flyer .text-box p{
+    margin-top: 10px;
+    margin-bottom: 0px;
+    padding-bottom: 0px; 
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: #000000;
+}
+#cards_landscape_wrap-2 .card-flyer .text-box h6{
+    margin-top: 0px;
+    margin-bottom: 4px; 
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: 'Roboto Black', sans-serif;
+    letter-spacing: 1px;
+    color: black;
+}
+
+/*============= Start banner_area css =============*/
+.banner_area {
+    background: #6e4e83;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .banner_area .position {
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+  }
+  
+  .booking_table {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    min-height: 800px;
+  }
+  
+  .overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 125%;
+    bottom: 0;
+    z-index: -1;
+  }
+  
+  .banner_content {
+    color: #fff;
+    margin-bottom: 94px;
+  }
+  
+  .banner_content h6 {
+    font-size: 14px;
+    line-height: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    font-weight: 400;
+    margin-top: 200px;
+  }
+  
+  .banner_content h2 {
+    font-size: 60px;
+    line-height: 60px;
+    font-weight: 700;
+  }
+  
+  .banner_content p {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 24px;
+    padding: 10px 0px 20px;
+  }
+  
+  /*============= End banner_area css =============*/
+  .hotel_booking_table {
+    background: rgba(255,255,255,0.4);
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 40px 50px 30px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    border: 1px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(10px);
+    margin: 0 auto;
+  }
+  
+  .hotel_booking_table h2 {
+    font-size: 28px;
+    line-height: 30px;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .book_tabel_item .form-group {
+    margin-bottom: 0px;
+  }
+  
+  .book_tabel_item .form-group .input-group {
+   /* position: relative;
+   border: 1px solid #2b3146;
+    background: transparent;
+    border-radius: 0px;
+    font-size: 13px;
+    line-height: 38px;
+    padding: 0px 20px;
+    color: #777777;
+    z-index: 0;*/
+  }
+  
+  .book_tabel_item .form-group .form-control {
+    border: 1px solid #2b3146;
+    background: rgba(255,255,255,0.4);
+    border-radius: 0px;
+    font-size: 14px;
+    line-height: 38px;
+    padding: 0px 15px;
+    color: #777777;
+    z-index: 0;
+  }
+  
+  .book_tabel_item .form-group .input-group .form-control.placeholder {
+    color: #777777;
+  }
+  
+  .book_tabel_item .form-group .input-group .form-control:-moz-placeholder {
+    color: #777777;
+  }
+  
+  .book_tabel_item .form-group .input-group .form-control::-moz-placeholder {
+    color: #777777;
+  }
+  
+  .book_tabel_item .form-group .input-group .form-control::-webkit-input-placeholder {
+    color: #777777;
+  }
+  
+  .book_tabel_item .form-group .input-group .form-control:focus {
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+  
+  .book_tabel_item .form-group .input-group .input-group-addon {
+    background: transparent;
+    padding: 0px;
+    border: 0px;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    color: #777777;
+    z-index: 2;
+  }
+  
+  .button_hover {
+    border-radius: 0px;
+    position: relative;
+    z-index: 1;
+    -webkit-transition: all 0.3s linear;
+    -o-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+    overflow: hidden;
+    border: 0px;
+    display: inline-block;
+    text-align: center;
+  }
+  
+  .button_hover:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    position: absolute;
+    -webkit-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    transform: translateX(-100%);
+    z-index: -1;
+    background: #1b1b1bbe;
+    -webkit-transition: all 0.3s linear;
+    -o-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+    opacity: 0;
+  }
+  
+  .button_hover:hover {
+    color: #fff;
+  }
+  
+  .button_hover:hover:before {
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  .book_now_btn {
+    width: 100%;
+    display: block;
+    background: #1b1b1bbe;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 14px;
+    line-height: 30px;
+    font-weight: 500;
+    margin-left: 35px;
+    padding: 5px 20px;
+    text-decoration: none;
+  }
+
+  @media (max-width: 413px) {
+    .comments-area .comment-list .single-comment h5 {
+      font-size: 12px;
+    }
+    .comments-area .comment-list .single-comment .date {
+      font-size: 11px;
+    }
+    .comments-area .comment-list .single-comment .comment {
+      font-size: 10px;
+    }
+  }
+  
+  .comments-area .thumb {
+    margin-right: 20px;
+  }
+  
+  .comments-area .date {
+    font-size: 13px;
+    color: #cccccc;
+    margin-bottom: 13px;
+  }
+  

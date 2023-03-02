@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Booking</title>
+    <link rel="icon" href="book.png" type="image/x-icon">
+    <link rel="stylesheet" href="css\bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="custom.css">
+    <link rel="stylesheet" href="booking_1.css">
+    <link rel="stylesheet" href="booking_2.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+    <style>
+        body{
+            background-color:whitesmoke !important;
+            font-family:'Barlow',sans-serif !important;
+            transition: transform .2s;
+        }
+        .mynav a{
+            color : white !important ;
+        }
+        .mynav a:hover{
+            color : #b897f3 !important;
+            border-bottom: 3px solid #B897F3;
+        }
+        .dropnav a{
+            color : black !important;
+        }
+        .dropnav a:hover{
+            color : black !important;
+            background-color:rgba(193, 154, 223, 0.4);
+            border: none;
+        }
+        .img{
+            width: 200%;
+            height: auto;
+            
+        }
+    </style>
+</head>
+<body>
+
+<!---------Top Nav --------->
+<nav class ="navbar fixed-top navbar-expand-md navbar-dark"
+style="background-color: rgba(0, 0, 0);">
+<div class="container">
+   <a href="#" class="navbar-brand">
+       <a href="home.html"><img src="txt.png" alt="Delluna Logo" width="auto" height="30" class="d-in-line-block align-top"/></a>
+       <span class="navbar-brand mb=0 h1" style="font-weight:bold; color: #B897F3;"></span>
+      </a>
+   <button
+       class="navbar-toggler"
+       type="button"
+       data-bs-toggle="collapse"
+       data-bs-target="#toggleMobileMenu"
+       aria-controls="toggleMobileMenu"
+       aria-expanded="false"
+       aria-lable="Toggle navigation"
+   >
+       <span class="navbar-toggler-icon"></span>
+   </button>
+</nav>
+
+
+<!--Form-->
+<div class="container">
+    <div class="stepwizard">
+        <div class="stepwizard-row setup-panel">
+            <div class="stepwizard-step col-xs-3"> 
+                <a href="#step-1" type="button" class="btn btn-success btn-circle">1</a>
+                <p><small>Check-in</small></p>
+            </div>
+            <div class="stepwizard-step col-xs-3"> 
+                <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
+                <p><small>Select your room</small></p>
+            </div>
+            <div class="stepwizard-step col-xs-3"> 
+                <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
+                <p><small>Bill & Pay</small></p>
+            </div>
+            <div class="stepwizard-step col-xs-3"> 
+                <a href="#step-4" type="button" class="btn btn-default btn-circle" disabled="disabled">4</a>
+                <p><small>Confirm</small></p>
+            </div>
+        </div>
+    </div>
+    
+    <form role="form" action="booking.php" method="post">
+        <div class="panel panel-primary setup-content" id="step-1">
+            <div class="panel-heading">
+                 <h3 class="panel-title">Choose Date & Guest</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label class="control-label">Branch</label>
+                            <select class="form-control" style="background-color: #fff;" id="bk-branch" required="required">
+                                <option>Branch</option>
+                                <option>BANGKOK</option>
+                                <option>CHIANG-MAI</option>
+                                <option>PATTAYA</option>
+                                <option>PHUKET</option>
+                              </select>
+                        </div>
+                        </div>
+                    <div class="col-md-2">
+                    <div class="form-group">
+                        <label class="control-label">Adult</label>
+                        <input maxlength="100" type="number" required="required" class="form-control" placeholder="Adult" />
+                    </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label class="control-label">Child</label>
+                            <input maxlength="100" type="number" required="required" class="form-control" placeholder="Child" />
+                        </div>
+                        </div>
+                    <div class="col-md-2">
+                    <div class="form-group">
+                        <label class="control-label">Check in</label>
+                        <input maxlength="100" type="Date" required="required" class="form-control" placeholder="Enter Last Name" />
+                    </div>
+                    </div>
+                    <div class="col-md-2">
+                    <div class="form-group">
+                        <label class="control-label">Check out</label>
+                        <input maxlength="100" type="Date" required="required" class="form-control" placeholder="Enter Last Name" />
+                    </div>
+                    </div>
+                </div>
+                <button class="btn btn-primary nextBtn pull-right" type="button">Next</button>
+            </div>
+        </div>
+        
+    <div class="panel-group">
+        <div class="panel panel-primary setup-content" id="step-2">
+            <div class="panel-heading">
+                 <h3 class="panel-title">Select your room</h3>
+            </div>
+            <div class="panel-group" id="accordion" role="tablist">
+                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                    <div class="panel-body">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" style="background-color: #ffd76a !important ; font-weight: bold !important;">Standard</div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label class="control-label">Select number of room</label>
+                                            <select class="form-control"  id="numberroom" required="required">
+                                                <option>0</option>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                            </select>
+                                        </div>
+                                        <h5 style="font-weight: bold;">Price<pre> 900.00 ฿/night</pre></h5>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <img src="std.jpg" style="width: 300px;">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <img src="std.png" style="height: 200px; margin-left: 130px;">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <img src="stdd.png" style="height: 200px; margin-left: 270px;">
+                                    </div>
+                                </div>
+                                <button class="btn btn-default pull-left btn-book" type="button">Book</button>
+                            </div>
+                        </div>
+                                    
+                        <div class="panel panel-default">
+                            <div class="panel-heading" style="background-color: #ffd76a !important ;font-weight: bold !important;">Deluxe Zen Room</div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label class="control-label">Select number of room</label>
+                                            <select class="form-control"  id="numberroom" required="required">
+                                                <option>0</option>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                            </select>
+                                        </div>
+                                        <h5 style="font-weight: bold;">Price<pre> 1,050.00 ฿/night</pre></h5>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <img src="zen-1.jpg" style="width: 300px;">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <img src="zen-1.png" style="height: 200px; margin-left: 130px;">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <img src="stdd.png" style="height: 200px; margin-left: 270px;">
+                                    </div>
+                                </div>
+                                <button class="btn btn-default pull-left btn-book" type="button">Book</button>
+                            </div>
+                        </div>
+        
+                        <div class="panel panel-default">
+                            <div class="panel-heading" style="background-color: #ffd76a !important ;font-weight: bold !important;">Deluxe King Double</div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label class="control-label">Select number of room</label>
+                                            <select class="form-control"  id="numberroom" required="required">
+                                                <option>0</option>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                            </select>
+                                        </div>
+                                        <h5 style="font-weight: bold;">Price<pre> 1,950.00 ฿/night</pre></h5>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <img src="king.jpg" style="width: 300px;">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <img src="king-1.png" style="height: 200px; margin-left: 130px;">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <img src="stdd.png" style="height: 200px; margin-left: 270px;">
+                                    </div>
+                                </div>
+                                <button class="btn btn-default pull-left btn-book" type="button">Book</button>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading" style="background-color: #ffd76a !important ;font-weight: bold !important;">Duluex Twin Room</div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label class="control-label">Select number of room</label>
+                                            <select class="form-control"  id="numberroom" required="required">
+                                                <option>0</option>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                            </select>
+                                        </div>
+                                        <h5 style="font-weight: bold;">Price<pre> 2,250.00 ฿/night</pre></h5>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <img src="twin.jpg" style="width: 300px;">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <img src="twin-1.png" style="height: 200px; margin-left: 130px;">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <img src="stdd.png" style="height: 200px; margin-left: 270px;">
+                                    </div>
+                                </div>
+                                <button class="btn btn-default pull-left btn-book" type="button">Book</button>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading" style="background-color: #ffd76a !important ;font-weight: bold !important;">King Suit</div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label class="control-label">Select number of room</label>
+                                            <select class="form-control"  id="numberroom" required="required">
+                                                <option>0</option>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                            </select>
+                                        </div>
+                                        <h5 style="font-weight: bold;">Price<pre> 3,150.00 ฿/night</pre></h5>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <img src="king-suit.jpg" style="width: 300px;">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <img src="king-suit-1.png" style="height: 200px; margin-left: 130px;">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <img src="stdd.png" style="height: 200px; margin-left: 270px;">
+                                    </div>
+                                </div>
+                                <button class="btn btn-default pull-left btn-book" type="button">Book</button>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading" style="background-color: #ffd76a !important ;font-weight: bold !important;">One Bedroom Garden View Suit</div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label class="control-label">Select number of room</label>
+                                            <select class="form-control"  id="numberroom" required="required">
+                                                <option>0</option>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                            </select>
+                                        </div>
+                                        <h5 style="font-weight: bold;">Price<pre> 2,750.00 ฿/night</pre></h5>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <img src="one-bed.jpg" style="width: 300px;">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <img src="one-bed-1.png" style="height: 200px; margin-left: 130px;">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <img src="stdd.png" style="height: 200px; margin-left: 270px;">
+                                    </div>
+                                </div>
+                                <button class="btn btn-default pull-left btn-book" type="button">Book</button>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading" style="background-color: #ffd76a !important ;font-weight: bold !important;">VIP</div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label class="control-label">Select number of room</label>
+                                            <select class="form-control"  id="numberroom" required="required">
+                                                <option>0</option>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                            </select>
+                                        </div>
+                                        <h5 style="font-weight: bold;">Price<pre> 2,050.00 ฿/night</pre></h5>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <img src="vip.jpg" style="width: 300px;">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <img src="vip-1.png" style="height: 200px; margin-left: 130px;">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <img src="stdd.png" style="height: 200px; margin-left: 270px;">
+                                    </div>
+                                </div>
+                                <button class="btn btn-default pull-left btn-book" type="button">Book</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div class="panel-body">
+                    <button class="btn btn-primary nextBtn pull-right" type="button">Next</button>
+                </div> 
+            </div>
+        </div>
+    </div>
+        
+
+        <div class="panel panel-primary setup-content" id="step-3">
+            <div class="panel-heading">
+                 <h3 class="panel-title">Schedule</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="control-label">Company Name</label>
+                    <input maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Company Name" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Company Address</label>
+                    <input maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Company Address" />
+                </div>
+                <button class="btn btn-primary nextBtn pull-right" type="button">Next</button>
+            </div>
+        </div> 
+        
+        <div class="panel panel-primary setup-content" id="step-4">
+            <div class="panel-heading">
+                 <h3 class="panel-title">Cargo</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="control-label">Company Name</label>
+                    <input maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Company Name" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Company Address</label>
+                    <input maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Company Address" />
+                </div>
+                <button class="btn btn-success pull-right" type="submit">Finish!</button>
+            </div>
+        </div>
+     
+    </form>
+</div>
+<script>
+    $(document).ready(function () {
+
+var navListItems = $('div.setup-panel div a'),
+    allWells = $('.setup-content'),
+    allNextBtn = $('.nextBtn');
+
+allWells.hide();
+
+navListItems.click(function (e) {
+    e.preventDefault();
+    var $target = $($(this).attr('href')),
+        $item = $(this);
+
+    if (!$item.hasClass('disabled')) {
+        navListItems.removeClass('btn-success').addClass('btn-default');
+        $item.addClass('btn-success');
+        allWells.hide();
+        $target.show();
+        $target.find('input:eq(0)').focus();
+    }
+});
+
+allNextBtn.click(function () {
+    var curStep = $(this).closest(".setup-content"),
+        curStepBtn = curStep.attr("id"),
+        nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+        curInputs = curStep.find("input[type='text'],input[type='url'],input[type='number'],input[type='date']")
+        isValid = true;
+
+    $(".form-group").removeClass("has-error");
+    for (var i = 0; i < curInputs.length; i++) {
+        if (!curInputs[i].validity.valid) {
+            isValid = false;
+            $(curInputs[i]).closest(".form-group").addClass("has-error");
+        }
+    }
+
+    if (isValid) nextStepWizard.removeAttr('disabled').trigger('click');
+});
+
+$('div.setup-panel div a.btn-success').trigger('click');
+});
+</script>
+
+</script>
+</body>
+</html>

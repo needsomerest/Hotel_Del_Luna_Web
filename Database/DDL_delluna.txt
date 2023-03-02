@@ -1,0 +1,184 @@
+CREATE DATABASE delluna;
+
+CREATE TABLE Hotel_Detail(
+	BranchNo Varchar(5) NOT NULL,
+	BranchName Varchar(50) NOT NULL,
+	Address Text(200) NOT NULL,
+	BranchTel Varchar(10) NOT NULL,
+	PRIMARY KEY(BranchNo)
+);
+
+
+CREATE TABLE Staff_Detail(
+	StaffID Varchar(13) NOT NULL,
+	pword Varchar(8) NULL,
+	BranchNo Varchar(5) NOT NULL,
+	FirstName Varchar(50) NOT NULL,
+	LastName Varchar(50) NOT NULL,
+	Sex Char(1) NOT NULL,
+	DateOfBirth DATE NOT NULL,
+	Position Varchar(10) NOT NULL,
+	Tel Varchar(10) NOT NULL,
+	Salary Int(5) NOT NULL,
+	PRIMARY KEY(StaffID),
+	FOREIGN KEY(BranchNo)
+	REFERENCES Hotel_Detail(BranchNo)
+);
+
+CREATE TABLE Staff_Salary(
+	StaffID Varchar(13) NOT NULL,
+	Day_off Int(2) NOT NULL, 
+	Bonus Int(5) NOT NULL,
+	Salary Int(5) NOT NULL,
+	PRIMARY KEY(StaffID,Bonus),
+	FOREIGN KEY(StaffID)
+	REFERENCES Staff_Detail(StaffID)	
+	);
+
+CREATE TABLE Shuttle_Bus_detail(
+	ShuttleBusNo Varchar(3) NOT NULL,
+	Departure Text(20) NOT NULL,
+	Destination Text(20) NOT NULL,
+	time Text(10) NOT NULL,
+	SeatsTotal Int(2) NOT NULL,
+	Status tinyint(1) NOT NULL,
+	PRIMARY KEY(ShuttleBusNo)
+);
+
+CREATE TABLE setBreakfast(
+	Set_MenuNo Varchar(4) NOT NULL,
+	Set_Menu Varchar(30) NOT NULL,
+	Menu Varchar(50) NOT NULL,
+	BreakfastPrice Int(3) NOT NULL,
+	PRIMARY KEY(Set_MenuNo)
+);
+
+CREATE TABLE Laundry_detail(
+	LaundryNo Varchar(3) NOT NULL,
+	LaundryType Varchar(10) NOT NULL,
+	LaundryPrice Int(3) NOT NULL,
+	PRIMARY KEY(LaundryNo)
+);
+
+CREATE TABLE Promotion(
+	PromotionCode Varchar(6) NOT NULL,
+	LimitedQuantity Int(3) NOT NULL,
+	StartDate Datetime NOT NULL,
+	ExpireDate Datetime NOT NULL,
+	Discount Int(4) NOT NULL,
+	SeasonalRate Int(4) NOT NULL,
+	Detail Text(200) NOT NULL,
+	PRIMARY KEY(PromotionCode)
+);
+
+CREATE TABLE Customer_Detail(
+	CustomerID Varchar(13) NOT NULL ,
+	pword Varchar(8) NOT NULL,
+	PassportNumber Varchar(7) NOT NULL,
+	Customer_Type Varchar(5) NOT NULL,
+	FirstName Varchar(50) NOT NULL,
+	LastName Varchar(50) NOT NULL,
+	DateOfBirth Date NOT NULL,
+	Email Varchar(50) NOT NULL,
+	CustomerTel Varchar(10) NOT NULL,
+	PRIMARY KEY(CustomerID)
+);
+
+CREATE TABLE Roomtype(
+	Roomtype Varchar(30) NOT NULL,
+	MaxofGuests Int(1) NOT NULL,
+	Details Text(200) NOT NULL,
+	PRIMARY KEY(Roomtype)
+);
+
+
+CREATE TABLE Room_Detail(
+	BranchNo Varchar(5) NOT NULL,
+	RoomID Varchar(4) NOT NULL,
+	RoomType Varchar(30) NOT NULL,
+	PRIMARY KEY(BranchNo,RoomID),
+	FOREIGN KEY(BranchNo)
+	REFERENCES Hotel_Detail(BranchNo),
+	FOREIGN KEY(RoomType)
+	REFERENCES Roomtype(RoomType)	
+);
+
+CREATE TABLE Booking(
+	BookingNo int(4) NOT NULL AUTO_INCREMENT,
+	CustomerID Varchar(13) NOT NULL,
+	CheckIn Date NOT NULL,
+	CheckOut Date NOT NULL,
+	PromotionCode Varchar(6) NULL,
+	BranchNo Varchar(5) NOT NULL,
+	Price Int(5) NOT NULL,
+	RoomID Varchar(4) NOT NULL,
+	stus tinyint(1) NOT NULL,
+	PRIMARY KEY(BookingNo),
+	FOREIGN KEY(CustomerID)
+    	REFERENCES Customer_Detail(CustomerID),
+	FOREIGN KEY(PromotionCode)
+    	REFERENCES Promotion(PromotionCode)
+);
+
+CREATE TABLE Payment(
+	PaymentNo Int(10) NOT NULL AUTO_INCREMENT,
+	Card_number Bigint(13) NOT NULL,
+	PaymentDate Timestamp NOT NULL,
+	Expiry Date NOT NULL,
+	CCV Int(3) NOT NULL,
+	CustomerID Varchar(13) NOT NULL, 
+	PRIMARY KEY(PaymentNo),
+	FOREIGN KEY(CustomerID)
+    	REFERENCES Booking(CustomerID)
+);
+
+CREATE TABLE Breakfast(
+	BreakfastID int(4) NOT NULL AUTO_INCREMENT,
+	Set_MenuNo Varchar(30) NOT NULL,
+	PRIMARY KEY(BreakfastID),
+	BookingNo int(4) NOT NULL,
+	FOREIGN KEY(BookingNo)
+    	REFERENCES Booking(BookingNo),
+	FOREIGN KEY(Set_MenuNo)
+	REFERENCES setBreakfast(Set_MenuNo)
+);
+
+CREATE TABLE Shuttle_Bus(
+	ShuttleBusID int(4) NOT NULL AUTO_INCREMENT,
+	ShuttleBusNo Varchar(3) NOT NULL,
+	Time Varchar(10) NOT NULL,
+	Seats Int(2) NOT NULL,
+	BookingNo int(4) NOT NULL,
+	PRIMARY KEY(ShuttleBusID),
+	FOREIGN KEY(ShuttleBusNo)
+	REFERENCES Shuttle_Bus_detail(ShuttleBusNo),
+	FOREIGN KEY(BookingNo)
+    	REFERENCES Booking(BookingNo)	
+);
+
+CREATE TABLE Laundry(
+	LaundryID int(4) NOT NULL AUTO_INCREMENT,
+	LaundryNo Varchar(3) NOT NULL,
+	NumberofClotches int(4) NOT NULL,
+	BookingNo int(4) NOT NULL,
+	PRIMARY KEY(LaundryID),
+	FOREIGN KEY(LaundryNo)
+	REFERENCES Laundry_detail(LaundryNo),
+	FOREIGN KEY(BookingNo)
+    	REFERENCES Booking(BookingNo)
+);
+
+CREATE TABLE Review_and_Comment(
+	ReviewNo int(5) NOT NULL AUTO_INCREMENT,
+	BookingNo int(4) NOT NULL,
+	Rate Int(1) NOT NULL,
+	Comment Text(100),
+	PRIMARY KEY(ReviewNo),
+	FOREIGN KEY(BookingNo)
+    	REFERENCES Booking(BookingNo)
+);
+
+ALTER TABLE `booking` ADD INDEX(`BookingNo`);
+ALTER TABLE `booking` ADD INDEX(`RoomID`);
+ALTER TABLE `room_detail` ADD INDEX(`RoomID`);
+ALTER TABLE `booking` ADD CONSTRAINT `booking_detail_ibfk_3` FOREIGN KEY (`RoomID`) REFERENCES `room_detail`(`RoomID`) ON DELETE RESTRICT ON UPDATE RESTRICT;
